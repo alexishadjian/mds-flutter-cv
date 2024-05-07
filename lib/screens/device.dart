@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'profil.dart';
 import 'experiences.dart';
 import 'formation.dart';
 import 'competences.dart';
@@ -14,12 +14,18 @@ class DeviceScreen extends StatefulWidget {
 
 
 class _DeviceScreenState extends State<DeviceScreen> {
-  int _currentScreen = 1;
-  final List<Widget> _screenList = [HomeScreen(), ExperienceScreen(), FormationScreen(), CompetencesScreen(), InfosScreen()];
+  int _currentScreen = 0;
+  
+  final List<Widget> _screenList = [ProfilScreen(), ExperienceScreen(), FormationScreen(), CompetencesScreen(), InfosScreen()];
+  final List<String> _appBarTitles = ['Alexis Hadjian', 'Expérience', 'Formation', 'Compétence', 'Infos+'];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Alexis'),
+      appBar: AppBar(
+        title: Text(_appBarTitles[_currentScreen]),
+        backgroundColor: Colors.blueGrey[100],
       ),
       body: _screenList[_currentScreen],
       bottomNavigationBar: BottomNavigationBar(

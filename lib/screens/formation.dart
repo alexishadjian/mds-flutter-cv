@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mds_flutter_cv/data.dart';
 
 class FormationScreen extends StatelessWidget {
   const FormationScreen({super.key});
@@ -7,44 +8,42 @@ class FormationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(58),
+      padding: const EdgeInsets.all(15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          const Text("Home"),
-          const Text("Home"),
+          SizedBox(
+            height: 500,
+            child: ListView.builder(
+              // itemExtent: 80,
+              itemCount: formations.length,
+              itemBuilder: (BuildContext ctxt, int index) {
 
-          const SizedBox(height: 20),
-          const Row(
-            children: <Widget>[
-              Icon(Icons.person),
-              SizedBox(width: 10),
-              Column(
-                children: [
-                  Text("Alexis Hadjian"),
-                ],
-              )
-            ],
-          ),
+                var exp = formations[index];
 
-          const SizedBox(height: 20),
-          // Image.network('https://img.att.ovh/flutter/logo.png'),
-          Image.asset('unsplash_56uwXWf5Ihk.png'),
-
-          const Row(
-            children: [
-              CircleAvatar(
-                backgroundImage: AssetImage('assets/unsplash_ppowah2hWE8.png'),
-                maxRadius: 50,
-                backgroundColor: Colors.green,
-              ),
-              CircleAvatar(
-                backgroundImage: AssetImage('assets/unsplash_ppowah2hWE8.png'),
-                maxRadius: 50,
-                backgroundColor: Colors.green,
-              ),
-            ],
-          ),
+                return ListTile(
+                  leading: SizedBox(
+                    width: 60,
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Align(
+                        alignment: Alignment.topCenter,
+                        child: Image.asset(
+                          exp["img"],
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ),
+                  title: Text(exp["name"], style: const TextStyle(
+                    fontSize: 20,
+                  ),),
+                  subtitle: Text(exp["description"])
+                  
+                );
+              },
+            )
+          )
         ],
       )
     );
