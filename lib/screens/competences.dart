@@ -5,49 +5,75 @@ class CompetencesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(58),
+      padding: const EdgeInsets.all(15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          const Text("Home"),
-          const Text("Home"),
-
-          const SizedBox(height: 20),
-          const Row(
-            children: <Widget>[
-              Icon(Icons.person),
-              SizedBox(width: 10),
-              Column(
-                children: [
-                  Text("Alexis Hadjian"),
-                ],
-              )
-            ],
+          const Text(
+            'Compétences web',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-
-          const SizedBox(height: 20),
-          // Image.network('https://img.att.ovh/flutter/logo.png'),
-          Image.asset('unsplash_56uwXWf5Ihk.png'),
-
-          const Row(
-            children: [
-              CircleAvatar(
-                backgroundImage: AssetImage('assets/unsplash_ppowah2hWE8.png'),
-                maxRadius: 50,
-                backgroundColor: Colors.green,
-              ),
-              CircleAvatar(
-                backgroundImage: AssetImage('assets/unsplash_ppowah2hWE8.png'),
-                maxRadius: 50,
-                backgroundColor: Colors.green,
-              ),
-            ],
+          const SizedBox(height: 15),
+          SizedBox(
+            height: 300,
+            child: GridView.count(
+              crossAxisCount: 3,
+              children: [
+                ListImage('/skills/logos_html-5.png'),
+                ListImage('/skills/logos_css-3.png'),
+                ListImage('/skills/logos_javascript.png'),
+                ListImage('/skills/logos_php.png'),
+                ListImage('/skills/devicon_nextjs.png'),
+                // Add more skill images as needed
+              ],
+            ),
+          ),
+          const SizedBox(height: 30),
+          const Text(
+            'Compétences mobile',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 15),
+          SizedBox(
+            height: 300,
+            child: GridView.count(
+              crossAxisCount: 3,
+              children: [
+                ListImage('/skills/logos_react.png'),
+                // Add more skill images as needed
+              ],
+            ),
           ),
         ],
-      )
+      ),
+    );
+  }
+
+  Container ListImage(String imageName) {
+    return Container(
+      margin: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: const Offset(3, 3),
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(15),
+        child: Image.asset(
+          imageName,
+          fit: BoxFit.contain,
+          height: 50,
+          width: 50,
+        ),
+      ),
     );
   }
 }
-

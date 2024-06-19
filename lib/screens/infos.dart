@@ -5,49 +5,89 @@ class InfosScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return const Scaffold(
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(15),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            // First Article
+            Article(
+              imagePath: 'gettyimages-847042730.jpg.webp',
+              category: 'Séjour à l\'étranger',
+              description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
+            ),
+            SizedBox(height: 20),
 
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(58),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const Text("Home"),
-          const Text("Home"),
+            // Second Article
+            Article(
+              imagePath: 'gettyimages-847042730.jpg.webp',
+              category: 'Sports pratiqués',
+              description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
+            ),
+            SizedBox(height: 20),
 
-          const SizedBox(height: 20),
-          const Row(
-            children: <Widget>[
-              Icon(Icons.person),
-              SizedBox(width: 10),
-              Column(
-                children: [
-                  Text("Alexis Hadjian"),
-                ],
-              )
-            ],
-          ),
-
-          const SizedBox(height: 20),
-          // Image.network('https://img.att.ovh/flutter/logo.png'),
-          Image.asset('unsplash_56uwXWf5Ihk.png'),
-
-          const Row(
-            children: [
-              CircleAvatar(
-                backgroundImage: AssetImage('assets/unsplash_ppowah2hWE8.png'),
-                maxRadius: 50,
-                backgroundColor: Colors.green,
-              ),
-              CircleAvatar(
-                backgroundImage: AssetImage('assets/unsplash_ppowah2hWE8.png'),
-                maxRadius: 50,
-                backgroundColor: Colors.green,
-              ),
-            ],
-          ),
-        ],
-      )
+            // Third Article
+            Article(
+              imagePath: 'gettyimages-847042730.jpg.webp',
+              category: 'Loisirs',
+              description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
 
+class Article extends StatelessWidget {
+  final String imagePath;
+  final String category;
+  final String description;
+
+  const Article({
+    super.key,
+    required this.imagePath,
+    required this.category,
+    required this.description,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Stack(
+          children: [
+            Image.asset(
+              imagePath,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+            Positioned(
+              bottom: 10,
+              left: 10,
+              child: Container(
+                color: Colors.black.withOpacity(0.7),
+                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                child: Text(
+                  category,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Text(
+          description,
+          style: const TextStyle(fontSize: 16),
+        ),
+      ],
+    );
+  }
+}
