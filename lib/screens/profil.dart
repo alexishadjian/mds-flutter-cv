@@ -65,9 +65,10 @@ class ProfilScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(15),
                 child: Container(
                   width: double.infinity,
-                  height: 500,
                   color: Colors.white, // Set your desired background color here
                   child: ListView(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
                     children: const [
                       ListTile(
                         leading: Icon(Icons.mail_outline),
@@ -87,7 +88,8 @@ class ProfilScreen extends StatelessWidget {
                       ),
                       ListTile(
                         leading: Icon(Icons.person_2_outlined),
-                        title: Text("En tant que développeur web, j'aime construire et développer de belles interfaces web intuitives et immersives. Actuellement alternant développeur web en troisième année sur Paris, j'ai déjà pu acquérir une certaine expérience au fil de mes derniers projets."),
+                        title: Text(
+                            "En tant que développeur web, j'aime construire et développer de belles interfaces web intuitives et immersives. Actuellement alternant développeur web en troisième année sur Paris, j'ai déjà pu acquérir une certaine expérience au fil de mes derniers projets."),
                       ),
                     ],
                   ),

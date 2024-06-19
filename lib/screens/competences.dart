@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mds_flutter_cv/data.dart'; // Assurez-vous que ce chemin est correct
 
 class CompetencesScreen extends StatelessWidget {
   const CompetencesScreen({super.key});
@@ -9,43 +10,32 @@ class CompetencesScreen extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const Text(
-            'Compétences web',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 15),
-          SizedBox(
-            height: 300,
-            child: GridView.count(
-              crossAxisCount: 3,
-              children: [
-                ListImage('/skills/logos_html-5.png'),
-                ListImage('/skills/logos_css-3.png'),
-                ListImage('/skills/logos_javascript.png'),
-                ListImage('/skills/logos_php.png'),
-                ListImage('/skills/devicon_nextjs.png'),
-                // Add more skill images as needed
-              ],
-            ),
-          ),
-          const SizedBox(height: 30),
-          const Text(
-            'Compétences mobile',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 15),
-          SizedBox(
-            height: 300,
-            child: GridView.count(
-              crossAxisCount: 3,
-              children: [
-                ListImage('/skills/logos_react.png'),
-                // Add more skill images as needed
-              ],
-            ),
-          ),
-        ],
+        children: competences.map((category) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                category["category"],
+                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 15),
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: category["skills"].length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                ),
+                itemBuilder: (BuildContext context, int index) {
+                  return ListImage(category["skills"][index]["img"]);
+                },
+              ),
+              const SizedBox(height: 30),
+            ],
+          );
+        }).toList(),
       ),
     );
   }

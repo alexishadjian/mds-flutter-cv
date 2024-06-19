@@ -36,3 +36,40 @@ List<Map> formations = [
     "description": "Bachelor 3 - Développement web"
   },
 ];
+
+List<Map> competences = [
+  {
+    "category": "Compétences web",
+    "skills": [
+      {"img": "/skills/logos_html-5.png"},
+      {"img": "/skills/logos_css-3.png"},
+      {"img": "/skills/logos_javascript.png"},
+      {"img": "/skills/logos_php.png"},
+      {"img": "/skills/devicon_nextjs.png"},
+    ],
+  },
+  {
+    "category": "Compétences mobile",
+    "skills": [
+      {"img": "/skills/logos_react.png"},
+    ],
+  },
+];
+
+List<Map> informations = [
+  {
+    "img": "gettyimages-847042730.jpg.webp",
+    "category": "Séjour à l'étranger",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
+  },
+  {
+    "img": "gettyimages-847042730.jpg.webp",
+    "category": "Sports pratiqués",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
+  },
+  {
+    "img": "gettyimages-847042730.jpg.webp",
+    "category": "Loisirs",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
+  },
+];
